@@ -1,6 +1,27 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+// 节流函数
+const throttle = (func, delay) => {
+  let timeoutId = null
+  let lastExecTime = 0
+  
+  return function (...args) {
+    const currentTime = Date.now()
+    
+    if (currentTime - lastExecTime > delay) {
+      func.apply(this, args)
+      lastExecTime = currentTime
+    } else {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        func.apply(this, args)
+        lastExecTime = Date.now()
+      }, delay - (currentTime - lastExecTime))
+    }
+  }
+}
+
 // 性能监控变量
 const performanceStats = ref({
   fps: 0,
@@ -31,6 +52,16 @@ const monitorPerformance = () => {
   requestAnimationFrame(monitorPerformance)
 }
 
+// 使用节流的性能监控（可选，针对高频更新场景）
+const throttledPerformanceUpdate = throttle(() => {
+  // 额外的性能统计更新逻辑
+  if (performanceStats.value.fps < 20) {
+    document.body.classList.add('performance-mode')
+  } else {
+    document.body.classList.remove('performance-mode')
+  }
+}, 200)
+
 // 缩放频率限制
 let resizeThreshold = 5 // 每秒最多5次缩放
 let resizeCount = 0
@@ -54,14 +85,28 @@ const limitResizeFrequency = () => {
       document.body.style.pointerEvents = 'auto'
     }, 500)
   }
+  
+  // 触发节流的性能更新
+  throttledPerformanceUpdate()
 }
+
+// 创建节流版本的resize处理函数
+const throttledResizeHandler = throttle(limitResizeFrequency, 100)
 
 onMounted(() => {
   // 启动性能监控
   requestAnimationFrame(monitorPerformance)
   
-  // 监听缩放事件
-  window.addEventListener('resize', limitResizeFrequency, { passive: true })
+  // 监听缩放事件（使用节流版本）
+  window.addEventListener('resize', throttledResizeHandler, { passive: true })
+  
+  // 监听滚动事件（使用节流）
+  const throttledScrollHandler = throttle(() => {
+    // 可以在这里添加滚动相关的性能优化逻辑
+    throttledPerformanceUpdate()
+  }, 50)
+  
+  window.addEventListener('scroll', throttledScrollHandler, { passive: true })
 })
 </script>
 
