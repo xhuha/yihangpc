@@ -25,6 +25,13 @@ const complaintChannels = ref([
   '电子邮箱：95599@abchina.com.cn',
   '总行监事机构地址：北京市东城区建国门内大街69号（邮编：100005）点击查看更多投诉受理及投诉处理流程'
 ])
+
+function handleServiceClick(text) {
+  if (text === '网点') {
+     window.location.href = '/src/pages/mapSelect.html'
+  }
+  // 可以添加其他服务的点击处理逻辑
+}
 </script>
 
 <template>
@@ -37,7 +44,13 @@ const complaintChannels = ref([
           <p class="section-subtitle">任何一个事情您都可以享受金融便利！</p>
           
           <div class="services-grid">
-            <div v-for="service in services" :key="service.text" class="service-item">
+            <div 
+              v-for="service in services" 
+              :key="service.text" 
+              class="service-item"
+              @click="handleServiceClick(service.text)"
+              style="cursor: pointer;"
+            >
               <div class="service-icon">
                 <i :class="service.icon"></i>
               </div>
@@ -305,4 +318,4 @@ const complaintChannels = ref([
     font-size: 12px;
   }
 }
-</style> 
+</style>
