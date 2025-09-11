@@ -70,6 +70,58 @@
       </div>
     </aside>
 
+    <!-- 服务中心 -->
+    <div class="m-servicecentre-center">
+      <div class="m-servicecentre-title">
+        <div class="m-leftspot"></div>
+        <div class="m-core">服务中心</div>
+        <div class="m-rightspot"></div>
+      </div>
+      <div class="m-important-link">
+        <dl class="m-certificate-download">
+          <dt>
+            <a target="_blank" href="https://www.abchina.com/cn/wydl/grwydl/zsgx/ckzsyxq/"></a>
+          </dt>
+          <dd>
+            <a target="_blank" href="https://www.abchina.com/cn/wydl/grwydl/zsgx/ckzsyxq/">证书下载</a>
+          </dd>
+        </dl>
+        <dl class="m-toopen">
+          <dt>
+            <a target="_blank" href="https://www.abchina.com/cn/EBanking/Personal/Personalonlinebanking/"></a>
+          </dt>
+          <dd>
+            <a target="_blank" href="https://www.abchina.com/cn/EBanking/Personal/Personalonlinebanking/">如何开通网银</a>
+          </dd>
+        </dl>
+        <dl class="m-kbfirst-landing">
+          <dt>
+            <a target="_blank" href="https://www.abchina.com/cn/wydl/grwydl/kbzs/kbdlzsdyb/#step1"></a>
+          </dt>
+          <dd>
+            <a target="_blank" href="https://www.abchina.com/cn/wydl/grwydl/kbzs/kbdlzsdyb/#step1">K宝首次登录</a>
+          </dd>
+        </dl>
+        <dl class="m-klfirst-landing">
+          <dt>
+            <a target="_blank" href="https://www.abchina.com/cn/wydl/grwydl/klzs/klzsdyb/"></a>
+          </dt>
+          <dd>
+            <a target="_blank" href="https://www.abchina.com/cn/wydl/grwydl/klzs/klzsdyb/">K令首次登录</a>
+          </dd>
+        </dl>
+        
+        <dl class="m-problem">
+          <dt>
+            <a href="frequentlyQuestions"></a>
+          </dt>
+          <dd>
+            <a href="frequentlyQuestions">常见问题</a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+
     <!-- 页脚精简版（登录页） -->
     <div class="login-footer-lite">
       <div class="lf-inner">
@@ -150,6 +202,8 @@ const handleLogin = async () => {
     window.location.href = '/'
   } catch (e) {
     console.error('login error:', e?.response?.status, e?.response?.data)
+    // 登录失败时自动刷新验证码
+    refreshCaptcha()
     // 避免刷新看不到错误：仅提示，不刷新
     alert('登录失败，请检查账号或密码')
   } finally {
@@ -166,6 +220,9 @@ onMounted(() => {
 .login-wrap {
   position: relative;
   background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 顶部简洁条 */
@@ -192,8 +249,17 @@ onMounted(() => {
 .page-title { font-size:18px; color:#3c3c3c; font-weight: 600; margin-bottom: 2px; letter-spacing: .4px; font-family: "SimSun", "Songti SC", "STSong", "Noto Serif SC", serif; }
 
 .banner {
-  background: url('/hero.jpg') 58% center/cover no-repeat;
-  min-height: 540px;
+  background: url('/登录.png') center center/cover no-repeat;
+  min-height: 60vh;
+  flex: 1;
+  position: relative;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .badge {
@@ -406,12 +472,183 @@ onMounted(() => {
     padding: 16px;
   }
   .banner {
-    min-height: 320px;
+    min-height: 50vh;
+  }
+  
+  .m-servicecentre-center {
+    padding: 15px 0;
+  }
+  
+  .m-important-link {
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .m-important-link dt {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .m-important-link dd a {
+    font-size: 11px;
   }
 }
 
+/* 服务中心样式 */
+.m-servicecentre-center {
+  background: #f5f5f5;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.m-servicecentre-title {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m-leftspot, .m-rightspot {
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+  max-width: 200px;
+}
+
+.m-core {
+  background: #f5f5f5;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+}
+
+.m-important-link {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.m-important-link dl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.m-important-link dl:hover {
+  transform: translateY(-2px);
+}
+
+.m-important-link dt {
+  width: 50px;
+  height: 50px;
+  background: #4ecdc4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.m-important-link dl:hover dt {
+  background: #45b7b8;
+  transform: scale(1.05);
+}
+
+.m-important-link dt a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.m-certificate-download dt a::before {
+  content: "🔄";
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.m-toopen dt a::before {
+  content: "🔑";
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.m-kbfirst-landing dt a::before {
+  content: "💳";
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.m-klfirst-landing dt a::before {
+  content: "📄";
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.m-problem dt a::before {
+  content: "❓";
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.m-important-link dd {
+  margin: 0;
+}
+
+.m-important-link dd a {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.m-important-link dd a:hover {
+  color: #4ecdc4;
+}
+
 /* 登录页简洁底部 */
-.login-footer-lite { border-top: 1px solid #eee; background:#fff; }
+.login-footer-lite { 
+  border-top: 1px solid #eee; 
+  background: #fff; 
+  width: 100%;
+  margin-top: 0;
+}
 .lf-inner { max-width: 1200px; margin: 0 auto; padding: 18px 20px 26px; text-align: center; color:#666; font-size: 12px; }
 .lf-links a { color:#666; text-decoration: none; }
 .lf-links a:hover { text-decoration: underline; }
