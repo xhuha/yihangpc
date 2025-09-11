@@ -5,7 +5,7 @@ import MegaMenu from './MegaMenu.vue'
 const menus = [
   { label: '个人服务', path: '/' },
   { label: '企业服务', path: '/corp' },
-  { label: '三农服务', path: '/agri' },
+  { label: '三农服务', path: '/farmers' },
   { label: '小微企业服务', path: '/sme' },
   { label: '关于农行', path: '/about' }
 ]

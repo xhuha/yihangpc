@@ -15,6 +15,11 @@ const router = createRouter({
             name: 'Login',
             component: () => import('../views/Login.vue'),
             meta: { title: '个人网银登录', guestOnly: true }
+        },
+        {
+            path: '/farmers',
+            name: 'Farmers',
+            component: () => import('../views/Farmers.vue')
         }
     ]
 })
