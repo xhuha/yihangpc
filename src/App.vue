@@ -226,4 +226,11 @@ body.performance-mode * {
     transition-duration: 0.01ms !important;
   }
 }
+@media screen and (max-width: 980px) {
+  html, body, #app {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
 </style>

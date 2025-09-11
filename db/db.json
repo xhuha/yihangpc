@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "displayName": "系统管理员",
+      "role": "admin",
+      "status": "active",
+      "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$/3ECh1sY3UhfJtJ+MIvslg$i8jYGHt94TF74NRrvWozE46W+wWXwTWQ5Wyb+yQ4JVE"
+    },
+    {
+      "id": 2,
+      "username": "demo",
+      "displayName": "演示用户",
+      "role": "user",
+      "status": "active",
+      "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$i7oTeYaETL91E679FjxI+w$Pmxka5IxxStIjfQvAjakK+J8u7UBSzlZUdKXI4Xr+FI"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "sess_1757403012301",
+      "userId": 1,
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiT05Ldmt5dXpXaHlsSEJ1eDZnMko1IiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NTc0MDMwMTIsImV4cCI6MTc1OTk5NTAxMn0.eRPs80Kjl3n-chXtbd1fJklUZ3dRxAQ9U7j_VA3secg",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiT05Ldmt5dXpXaHlsSEJ1eDZnMko1IiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc1NzQwMzAxMiwiZXhwIjoxNzU3NDAzOTEyfQ.A3zvD0ZX802y9Pr-oLHAGbLGwFefvJ87ldJIRvDcmnc",
+      "issuedAt": 1757403012301
+    },
+    {
+      "id": "sess_1757404701479",
+      "userId": 1,
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiT2x6Y01STEljOWJ0OHVtM08xZUdRIiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NTc0MDQ3MDEsImV4cCI6MTc1OTk5NjcwMX0.yT0RtHwVqhhySpophSp__H8MULaAYX-vc3P79ERJ18Y",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiT2x6Y01STEljOWJ0OHVtM08xZUdRIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc1NzQwNDcwMSwiZXhwIjoxNzU3NDA1NjAxfQ.S8hBPrx4_XG5YU5bsVxo0qBrT7Yiwzb76E_r2Mw4pMs",
+      "issuedAt": 1757404701479
+    },
+    {
+      "id": "sess_1757405308087",
+      "userId": 1,
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoicmY3NGVGcHdyWHNJel94dDZhWmRjIiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NTc0MDYwNTQsImV4cCI6MTc1OTk5ODA1NH0.TGDoxaANzzlI3MDWKVrZvjWQpmU_Il-SSAg0bTdot9E",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoicmY3NGVGcHdyWHNJel94dDZhWmRjIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc1NzQwNjA1NCwiZXhwIjoxNzU3NDA2OTU0fQ.zEu8FZXVjHqpkOnhtIU6J7CGnQiUS152pgiKTpIKoE4",
+      "issuedAt": 1757405308087
+    },
+    {
+      "id": "sess_1757406127055",
+      "userId": 1,
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiU1ZZREI5b01TaHAxdjNqSTdNbW1NIiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NTc0MDcwNjUsImV4cCI6MTc1OTk5OTA2NX0.5fgGcgI23-2WthD2Yz6sQ7vLS5PxQeXRs38ke4J-RGM",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiU1ZZREI5b01TaHAxdjNqSTdNbW1NIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc1NzQwNzA2NSwiZXhwIjoxNzU3NDA3OTY1fQ.Pwks_ifxj_LNVU0tPcGORvJT5mRaNO3B7x2Vilic5fc",
+      "issuedAt": 1757406127055
+    },
+    {
+      "id": "sess_1757407102178",
+      "userId": 1,
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiLTNfSHdUTi1MSzFKMV9IUzdzU1FDIiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NTc0MDcxMTMsImV4cCI6MTc1OTk5OTExM30.f3Pou_5LFmaDJ-1Ha2E8Tpm1DGlnRpncFI9ITdqP8Rc",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiLTNfSHdUTi1MSzFKMV9IUzdzU1FDIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc1NzQwNzExMywiZXhwIjoxNzU3NDA4MDEzfQ.ymqzwNh93QmvbrPbw2MXq09gZmy8srQYMvTzdd3P6ys",
+      "issuedAt": 1757407102178
+    },
+    {
+      "id": "sess_1757494761897",
+      "userId": 1,
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiUlpJVkhhT1BvTl8zcVNZT3JkbEJqIiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NTc0OTQ3NjEsImV4cCI6MTc2MDA4Njc2MX0.LXHA_EYAZgOqmavDDbTcQmiOypIqnGjxQKxpaCkHwjY",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiUlpJVkhhT1BvTl8zcVNZT3JkbEJqIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc1NzQ5NDc2MSwiZXhwIjoxNzU3NDk1NjYxfQ.0DBGUK_DmnrrynylPdcOeSR2KAu0yAwuQ1MA5lVTAH8",
+      "issuedAt": 1757494761897
+    },
+    {
+      "id": "sess_1757494917632",
+      "userId": 1,
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiYzlKWTF6QTlxZjBveFdrN0ZKU2ZYIiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NTc0OTQ5OTcsImV4cCI6MTc2MDA4Njk5N30.7dC7e3ycuVRwQ6lrmebYIxQsWUCG9EtaUlTP6X3IWhI",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiYzlKWTF6QTlxZjBveFdrN0ZKU2ZYIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc1NzQ5NDk5NywiZXhwIjoxNzU3NDk1ODk3fQ.BDTYrYwzxY9UGk1kskjtCAGk7ccD6BdzlcDJVa5U1fQ",
+      "issuedAt": 1757494917632
+    }
+  ],
+  "config": {
+    "passwordEncoding": "base64",
+    "token": {
+      "issuer": "abank-local",
+      "audience": "abank-web",
+      "access": {
+        "ttl_sec": 900,
+        "prefix": "Bearer"
+      },
+      "refresh": {
+        "ttl_sec": 2592000,
+        "prefix": "Refresh"
+      }
+    }
+  }
+}
