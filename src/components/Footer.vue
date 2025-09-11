@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router' // 导入Vue Router
+
+const router = useRouter() // 创建路由实例
 
 const services = ref([
   { icon: 'fas fa-desktop', text: '网上银行' },
@@ -28,7 +31,8 @@ const complaintChannels = ref([
 
 function handleServiceClick(text) {
   if (text === '网点') {
-     window.location.href = '/src/pages/mapSelect.html'
+    // 使用Vue Router进行跳转，而不是直接修改location.href
+    router.push('/map-select')
   }
   // 可以添加其他服务的点击处理逻辑
 }
