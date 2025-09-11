@@ -8,7 +8,7 @@ const props = defineProps({
     default: () => ([
       { icon: 'fa-solid fa-user', label: '个人网银登录', bg: '#ffffff', color: '#333' },
       { icon: 'fa-solid fa-lock', label: '企业网银登录', bg: '#ffffff', color: '#333' },
-      { icon: 'fa-solid fa-circle-nodes', label: '在线办理及费率', bg: '#ffa51e', color: '#fff' }
+      { icon: 'fa-solid fa-circle-nodes', label: '在线办理', bg: '#ffa51e', color: '#fff' }
     ])
   }
 })
@@ -158,7 +158,7 @@ onUnmounted(() => {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 320px;
+  width: 200px;
   background: rgba(255,255,255,.45);
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
   border-radius: 0;
