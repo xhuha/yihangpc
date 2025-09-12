@@ -5,18 +5,18 @@
       <div class="right-links">
         <a href="#">本系统已支持IPv6</a>
         <a href="#">无障碍浏览</a>
-        <a href="#">English</a>
+        <a href="#" @click.prevent="toggleLanguage">{{ isEnglish ? '中文' : 'English' }}</a>
       </div>
     </div>
   </header>
   <div class="page-header">
     <div class="page-header-inner">
-      <div class="brand-txt">
-        <div class="cn">中国农业银行</div>
+        <div class="brand-txt">
+        <div class="cn">{{ isEnglish ? 'Agricultural Bank of China' : '中国农业银行' }}</div>
         <div class="en">AGRICULTURAL BANK OF CHINA</div>
       </div>
       <span class="vline" aria-hidden="true"></span>
-      <h2 class="page-title">个人网上银行</h2>
+      <h2 class="page-title">{{ isEnglish ? 'Personal Online Banking' : '个人网上银行' }}</h2>
     </div>
   </div>
   <div class="banner"></div>
@@ -24,25 +24,25 @@
     <aside class="panel">
       <div class="card">
         <div class="tabs">
-          <button class="tab active" type="button">用户名登录</button>
-          <button class="tab" type="button">K宝登录</button>
+          <button class="tab active" type="button">{{ isEnglish ? 'Username Login' : '用户名登录' }}</button>
+          <button class="tab" type="button">{{ isEnglish ? 'K-Bao Login' : 'K宝登录' }}</button>
         </div>
 
         <form class="form" @submit.prevent="handleLogin">
         <label class="field">
           <i class="ico user" aria-hidden="true"></i>
-          <input v-model="form.username" type="text" placeholder="用户名/卡号/身份证号/手机号" required>
+          <input v-model="form.username" type="text" :placeholder="isEnglish ? 'Username/Card No./ID No./Mobile No.' : '用户名/卡号/身份证号/手机号'" required>
         </label>
 
         <label class="field">
           <i class="ico lock" aria-hidden="true"></i>
-          <input v-model="form.password" :type="showPassword ? 'text' : 'password'" placeholder="请输入登录密码" required>
+          <input v-model="form.password" :type="showPassword ? 'text' : 'password'" :placeholder="isEnglish ? 'Please enter login password' : '请输入登录密码'" required>
         </label>
 
         <div class="field captcha-row">
           <label class="field flex">
             <i class="ico key" aria-hidden="true"></i>
-            <input v-model="form.captcha" type="text" placeholder="验证码" maxlength="4" required>
+            <input v-model="form.captcha" type="text" :placeholder="isEnglish ? 'Verification Code' : '验证码'" maxlength="4" required>
           </label>
           <div class="captcha" @click="refreshCaptcha" title="点击刷新">
             <canvas ref="captchaCanvas" width="90" height="36"></canvas>
@@ -50,20 +50,20 @@
         </div>
 
         <button class="submit" type="submit" :disabled="isLoading">
-          <span v-if="!isLoading">登 录</span>
-          <span v-else>登录中...</span>
+          <span v-if="!isLoading">{{ isEnglish ? 'Login' : '登 录' }}</span>
+          <span v-else>{{ isEnglish ? 'Logging in...' : '登录中...' }}</span>
         </button>
 
         <div class="helper">
-          <a href="#">首次登录指南</a>
+          <a href="#">{{ isEnglish ? 'First Login Guide' : '首次登录指南' }}</a>
         </div>
 
         <div class="links">
-          <a href="#">客户注册</a>
-          <a href="#">忘记密码</a>
+          <a href="#">{{ isEnglish ? 'Customer Registration' : '客户注册' }}</a>
+          <a href="#">{{ isEnglish ? 'Forgot Password' : '忘记密码' }}</a>
           <a href="#" class="mobile">
             <i class="ico phone" aria-hidden="true"></i>
-            掌银扫码登录
+            {{ isEnglish ? 'Mobile Banking QR Login' : '掌银扫码登录' }}
           </a>
         </div>
         </form>
@@ -157,6 +157,12 @@ const form = reactive({
 const showPassword = ref(false)
 const isLoading = ref(false)
 const captchaCanvas = ref(null)
+const isEnglish = ref(false)
+
+// 简单的语言切换功能
+const toggleLanguage = () => {
+  isEnglish.value = !isEnglish.value
+}
 
 const generateCaptcha = () => {
   const canvas = captchaCanvas.value
