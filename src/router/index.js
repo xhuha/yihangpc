@@ -12,6 +12,12 @@ const router = createRouter({
             path: '/map-select',
             name: 'MapSelect',
             component: () => import('../components/mapSelect.vue')
+        },
+        // 添加关于农行路由配置
+        {
+            path: '/about',
+            name: 'AboutABC',
+            component: () => import('../views/AboutABC.vue')
         }
     ]
 })
